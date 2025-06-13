@@ -57,7 +57,7 @@ def list_customer_ids(client: GoogleAdsClient) -> list:
 def query_clicks(client, customer_id, start_date, end_date) -> list:
     service = client.get_service("GoogleAdsService")
     query = f"""
-        SELECT click_view.gclid, campaign.id, segments.date, ad_group_ad.ad.id
+        SELECT click_view.gclid, campaign.id, segments.date, ad_group.id
         FROM click_view
         WHERE segments.date BETWEEN '{start_date}' AND '{end_date}'
     """
