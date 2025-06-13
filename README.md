@@ -24,4 +24,14 @@ script:
 python google-adds-pull-params.py
 ```
 
+## Troubleshooting
+
+If the script logs an error similar to:
+
+```
+User doesn't have permission to access customer. Note: If you're accessing a client customer, the manager's customer id must be set in the 'login-customer-id' header.
+```
+
+ensure the environment variable `GOOGLE_ADS_LOGIN_CUSTOMER_ID` is set to the numeric ID of the manager account **without hyphens** and that the manager has permission to access the client accounts.
+
 

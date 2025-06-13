@@ -46,14 +46,22 @@ def build_client_with_refresh() -> GoogleAdsClient:
         logger.info("Refreshing access token...")
         token_creds.refresh(Request())
 
+    try:
+        login_customer_id = int(str(creds["login_customer_id"]).replace("-", ""))
+    except (TypeError, ValueError) as exc:
+        raise ValueError(
+            "GOOGLE_ADS_LOGIN_CUSTOMER_ID must be the numeric manager account id"
+            " without hyphens"
+        ) from exc
+
     config = {
         "developer_token": creds["developer_token"],
         "client_id": creds["client_id"],
         "client_secret": creds["client_secret"],
         "refresh_token": token_creds.refresh_token,
-        "login_customer_id": int(creds["login_customer_id"]),
+        "login_customer_id": login_customer_id,
         "use_proto_plus": creds.get("use_proto_plus", True),
-        "endpoint": "googleads.googleapis.com"
+        "endpoint": "googleads.googleapis.com",
     }
 
     return GoogleAdsClient.load_from_dict(config, version="v20")
