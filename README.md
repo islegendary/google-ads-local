@@ -1,2 +1,5 @@
 # google-ads-local
-Click parameters from Google Ads API
+This repository contains a samplecode for collecting click
+performance data from the Google Ads API and storing it in a file.
+
+
