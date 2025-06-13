@@ -10,6 +10,14 @@ from google.oauth2.credentials import Credentials as GoogleCredentials
 # Import your credentials
 from google_ads_config import GOOGLE_ADS_CONFIG
 
+REQUIRED_FIELDS = [
+    "developer_token",
+    "client_id",
+    "client_secret",
+    "refresh_token",
+    "login_customer_id",
+]
+
 # --- Logging ---
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger()
@@ -18,6 +26,12 @@ logger = logging.getLogger()
 def build_client_with_refresh() -> GoogleAdsClient:
     """Return an authenticated GoogleAdsClient refreshing OAuth as needed."""
     creds = GOOGLE_ADS_CONFIG
+
+    missing = [field for field in REQUIRED_FIELDS if not creds.get(field)]
+    if missing:
+        raise ValueError(
+            f"Missing required Google Ads credentials: {', '.join(missing)}"
+        )
 
     token_creds = GoogleCredentials(
         token=None,
@@ -37,7 +51,7 @@ def build_client_with_refresh() -> GoogleAdsClient:
         "client_id": creds["client_id"],
         "client_secret": creds["client_secret"],
         "refresh_token": token_creds.refresh_token,
-        "login_customer_id": creds["login_customer_id"],
+        "login_customer_id": int(creds["login_customer_id"]),
         "use_proto_plus": creds.get("use_proto_plus", True),
         "endpoint": "googleads.googleapis.com"
     }
