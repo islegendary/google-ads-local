@@ -194,10 +194,11 @@ def query_clicks_for_customer(client: GoogleAdsClient, customer_id: str, query_d
              for row in processed_rows:
                 results.append({
                     "gclid": row.click_view.gclid,
-                    "campaign_id": row.campaign.id,
                     "ad_group_id": row.ad_group.id,
-                    "timestamp": row.segments.date,
+                    "ad_network_type": row.segments.ad_network_type.name,
+                    "campaign_id": row.campaign.id,
                     "customer_id": customer_id,
+                    "timestamp": row.segments.date
                 })
         else:
             logger.info(f"Query successful for customer {customer_id}, but it returned no data for the specified date.")
