@@ -175,9 +175,10 @@ def query_clicks_for_customer(client: GoogleAdsClient, customer_id: str, query_d
     # This GAQL query retrieves the desired fields from the click_view report.
     query = f"""
         SELECT 
-            click_view.gclid, 
-            campaign.id, 
+            click_view.gclid,
             ad_group.id,
+            segments.ad_network_type, 
+            campaign.id, 
             segments.date
         FROM click_view
         WHERE segments.date = '{query_date}'
@@ -197,8 +198,7 @@ def query_clicks_for_customer(client: GoogleAdsClient, customer_id: str, query_d
                     "ad_group_id": row.ad_group.id,
                     "ad_network_type": row.segments.ad_network_type.name,
                     "campaign_id": row.campaign.id,
-                    "customer_id": customer_id,
-                    "timestamp": row.segments.date
+                    "received_date": row.segments.date
                 })
         else:
             logger.info(f"Query successful for customer {customer_id}, but it returned no data for the specified date.")
