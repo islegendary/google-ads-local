@@ -187,21 +187,26 @@ def query_clicks_for_customer(client: GoogleAdsClient, customer_id: str, query_d
     results = []
     try:
         response = service.search(customer_id=customer_id, query=query)
-        
-        # The response is an iterator, so it must be converted to a list to check its size.
-        processed_rows = list(response)
-        if processed_rows:
-             logger.info(f"Successfully retrieved {len(processed_rows)} rows for customer {customer_id}.")
-             for row in processed_rows:
-                results.append({
-                    "gclid": row.click_view.gclid,
-                    "ad_group_id": row.ad_group.id,
-                    "ad_network_type": row.segments.ad_network_type.name,
-                    "campaign_id": row.campaign.id,
-                    "received_date": row.segments.date
-                })
+
+        row_count = 0
+        for row in response:
+            row_count += 1
+            results.append({
+                "gclid": row.click_view.gclid,
+                "ad_group_id": row.ad_group.id,
+                "ad_network_type": row.segments.ad_network_type.name,
+                "campaign_id": row.campaign.id,
+                "received_date": row.segments.date,
+            })
+
+        if row_count:
+            logger.info(
+                f"Successfully retrieved {row_count} rows for customer {customer_id}."
+            )
         else:
-            logger.info(f"Query successful for customer {customer_id}, but it returned no data for the specified date.")
+            logger.info(
+                f"Query successful for customer {customer_id}, but it returned no data for the specified date."
+            )
 
     except GoogleAdsException as e:
         # This block handles API-level errors, such as lack of permission.

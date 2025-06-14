@@ -4,6 +4,20 @@ from the Google Ads API and storing it in a JSON file. The script uses
 credentials provided via environment variables so that secrets do not need to be
 checked into source control.
 
+The easiest way to supply these variables locally is by creating a `.env` file
+in the project root. The script automatically loads this file when present using
+`python-dotenv`.
+
+Example `.env` file:
+
+```bash
+GOOGLE_ADS_DEVELOPER_TOKEN=your-token
+GOOGLE_ADS_LOGIN_CUSTOMER_ID=1234567890
+GOOGLE_ADS_CLIENT_ID=your-client-id
+GOOGLE_ADS_CLIENT_SECRET=your-secret
+GOOGLE_ADS_REFRESH_TOKEN=your-refresh-token
+```
+
 ## Required environment variables
 
 - `GOOGLE_ADS_DEVELOPER_TOKEN`
@@ -23,6 +37,10 @@ script:
 ```bash
 python google-adds-pull-params.py
 ```
+
+The script retrieves click information for the previous UTC day from every
+account that your manager has access to. The collected records are written to a
+JSON file named `google_ads_clicks_<timestamp>.json` in the working directory.
 
 ## Troubleshooting
 
