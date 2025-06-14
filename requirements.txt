@@ -4,4 +4,3 @@ google-auth-oauthlib
 protobuf
 PyYAML
 python-dotenv
-python-dotenv
