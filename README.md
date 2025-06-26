@@ -1,4 +1,4 @@
-# google-ads-local
+# Google Ads Return Click Parameters
 This repository contains a small example for collecting click performance data
 from the Google Ads API and storing it in a JSON file. The script uses
 credentials provided via environment variables so that secrets do not need to be
