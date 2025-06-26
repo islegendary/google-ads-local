@@ -49,7 +49,10 @@ If the script logs an error similar to:
 ```
 User doesn't have permission to access customer. Note: If you're accessing a client customer, the manager's customer id must be set in the 'login-customer-id' header.
 ```
-Sample script terminal output:
+ensure the environment variable `GOOGLE_ADS_LOGIN_CUSTOMER_ID` is set to the numeric ID of the manager account **without hyphens** and that the manager has permission to access the client accounts.
+
+## Sample script terminal output:
+```text
 2025-06-24 12:05:25,079 - INFO - Refreshing access token...
 2025-06-24 12:05:26,722 - INFO - Starting job to query click data for date: 2025-06-23
 2025-06-24 12:05:28,348 - INFO - Beginning recursive search of the account hierarchy...
@@ -58,6 +61,6 @@ Sample script terminal output:
 2025-06-24 12:05:31,316 - INFO - Query successful for customer 5736374761, but it returned no data for the specified date.
 2025-06-24 12:05:31,949 - INFO - Successfully retrieved 69 rows for customer 8773573579.
 
-ensure the environment variable `GOOGLE_ADS_LOGIN_CUSTOMER_ID` is set to the numeric ID of the manager account **without hyphens** and that the manager has permission to access the client accounts.
+
 
 
