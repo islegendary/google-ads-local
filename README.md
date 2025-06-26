@@ -60,7 +60,3 @@ ensure the environment variable `GOOGLE_ADS_LOGIN_CUSTOMER_ID` is set to the num
 2025-06-24 12:05:28,938 - INFO - Hierarchy scan complete. Found 90 total client accounts. Now querying each for click data...
 2025-06-24 12:05:31,316 - INFO - Query successful for customer 5736374761, but it returned no data for the specified date.
 2025-06-24 12:05:31,949 - INFO - Successfully retrieved 69 rows for customer 8773573579.
-
-
-
-
