@@ -1,18 +1,19 @@
-Here’s your fully integrated and polished `README.md` file:
-
 ````markdown
 # Google Ads Return Click Parameters
 
 This repository provides a lightweight solution for companies using Google Search Ads to improve attribution reporting. It captures critical click-level data from the Google Ads API, enriching web sessions that contain `gclid` parameters with campaign, ad group, and ad network details.
 
 ## Key Features
+
 - Traverses Google Ads account hierarchies (MCC)
 - Queries click performance data across all accessible client accounts
 - Securely handles OAuth2 authentication and token refresh via environment variables
 - Stores detailed, timestamped click data in JSON files for downstream use
 
 ## Integration Flexibility
+
 The local JSON output can be immediately added to Page and Event tracking when users visit from Google Search Ads. The solution is easily adaptable to write directly to platforms like:
+
 - Amazon DynamoDB
 - Amazon Redshift
 - Google BigQuery
@@ -25,6 +26,7 @@ This flexibility allows seamless integration into larger pipelines for real-time
 ## Setup Instructions
 
 ### Environment Configuration
+
 The easiest way to supply credentials locally is by creating a `.env` file in the project root. The script automatically loads this file using `python-dotenv`.
 
 Example `.env` file:
