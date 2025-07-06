@@ -94,12 +94,12 @@ Ensure that:
 ## Example Terminal and File Output
 ```json
 {
-                    "gclid": row.click_view.gclid,
-                    "ad_group_id": row.ad_group.id,
-                    "ad_network_type": row.segments.ad_network_type.name,
-                    "campaign_id": row.campaign.id,
-                    "received_date": row.segments.date
-                })
+    "gclid": "CjwK12345aBcDEFgHiJKlmnOpQrSTuVwXYZ",
+    "ad_group_id": "87654321",
+    "ad_network_type": "SEARCH",
+    "campaign_id": "12345678",
+    "received_date": "2025-07-05"
+}
 ```
 
 ```text
