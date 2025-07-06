@@ -1,8 +1,10 @@
 # Google Ads Paramters Enrichment
 
 This repository provides a lightweight solution for companies using Google Search Ads to improve attribution reporting.
-It captures critical click-level data from the Google Ads API, enriching web sessions that contain `gclid` parameters with
-campaign, ad group, and ad network details.
+It captures critical click-level data from the Google Ads API, in order to enrich web sessions that contain `gclid` parameters with
+campaign, ad group, and ad network details = many additional parameters are also available with configuration.
+
+For more information on available fields, see the [Google Ads Click View resource](https://developers.google.com/google-ads/api/fields/v20/click_view).
 
 ## Key Features
 
@@ -89,7 +91,16 @@ Ensure that:
 * `GOOGLE_ADS_LOGIN_CUSTOMER_ID` is set to the numeric ID of the manager account **without hyphens**
 * The manager account has the proper permissions to access the client accounts
 
-## Example Terminal Output
+## Example Terminal and File Output
+```json
+{
+                    "gclid": row.click_view.gclid,
+                    "ad_group_id": row.ad_group.id,
+                    "ad_network_type": row.segments.ad_network_type.name,
+                    "campaign_id": row.campaign.id,
+                    "received_date": row.segments.date
+                })
+```
 
 ```text
 2025-06-24 12:05:25,079 - INFO - Refreshing access token...
