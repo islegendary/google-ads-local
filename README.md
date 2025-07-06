@@ -1,4 +1,4 @@
-# Google Ads Return Click Parameters
+# Google Ads Paramters Enrichment
 
 This repository provides a lightweight solution for companies using Google Search Ads to improve attribution reporting.
 It captures critical click-level data from the Google Ads API, enriching web sessions that contain `gclid` parameters with
