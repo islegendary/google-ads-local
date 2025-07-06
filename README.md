@@ -1,7 +1,8 @@
-````markdown
 # Google Ads Return Click Parameters
 
-This repository provides a lightweight solution for companies using Google Search Ads to improve attribution reporting. It captures critical click-level data from the Google Ads API, enriching web sessions that contain `gclid` parameters with campaign, ad group, and ad network details.
+This repository provides a lightweight solution for companies using Google Search Ads to improve attribution reporting.
+It captures critical click-level data from the Google Ads API, enriching web sessions that contain `gclid` parameters with
+campaign, ad group, and ad network details.
 
 ## Key Features
 
@@ -12,7 +13,8 @@ This repository provides a lightweight solution for companies using Google Searc
 
 ## Integration Flexibility
 
-The local JSON output can be immediately added to Page and Event tracking when users visit from Google Search Ads. The solution is easily adaptable to write directly to platforms like:
+The local JSON output can be immediately added to Page and Event tracking when users visit from Google Search Ads.
+The solution is easily adaptable to write directly to platforms like:
 
 - Amazon DynamoDB
 - Amazon Redshift
@@ -21,13 +23,15 @@ The local JSON output can be immediately added to Page and Event tracking when u
 - Snowflake
 - Databricks Delta Lake
 
-This flexibility allows seamless integration into larger pipelines for real-time or batch processing, advanced reporting, cross-channel attribution, and user-level personalization.
+This flexibility allows seamless integration into larger pipelines for real-time or batch processing, advanced reporting, 
+cross-channel attribution, and user-level personalization.
 
 ## Setup Instructions
 
 ### Environment Configuration
 
-The easiest way to supply credentials locally is by creating a `.env` file in the project root. The script automatically loads this file using `python-dotenv`.
+The easiest way to supply credentials locally is by creating a `.env` file in the project root. The script automatically 
+loads this file using `python-dotenv`.
 
 Example `.env` file:
 ```bash
@@ -76,7 +80,8 @@ google_ads_clicks_<timestamp>.json
 If you see this error:
 
 ```text
-User doesn't have permission to access customer. Note: If you're accessing a client customer, the manager's customer id must be set in the 'login-customer-id' header.
+User doesn't have permission to access customer. Note: If you're accessing a client customer, the manager's customer id
+must be set in the 'login-customer-id' header.
 ```
 
 Ensure that:
